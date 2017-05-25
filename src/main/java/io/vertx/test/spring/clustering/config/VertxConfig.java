@@ -2,21 +2,22 @@ package io.vertx.test.spring.clustering.config;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
 import io.vertx.core.spi.cluster.ClusterManager;
-//import io.vertx.spi.cluster.ignite.IgniteClusterManager;
-//import io.vertx.spi.cluster.jgroups.JGroupsClusterManager;
-import io.vertx.ext.cluster.infinispan.InfinispanClusterManager;
+import io.vertx.spi.cluster.ignite.IgniteClusterManager;
+import io.vertx.spi.cluster.jgroups.JGroupsClusterManager;
 
 
 @Configuration
 public class VertxConfig {
 
-  /*@Primary
+  @Primary
   @Bean
   public ClusterManager getJGroupsClusterManager(){
 	  return new JGroupsClusterManager();
@@ -25,13 +26,12 @@ public class VertxConfig {
   @Bean
   public ClusterManager IgniteClusterManager(){
 	  return new IgniteClusterManager();
-  }*/
-  
-  @Primary
-  @Bean
+  }
+
+  /*@Bean
   public ClusterManager InfinispanClusterManager(){
 	  return new InfinispanClusterManager();
-  }
+  }*/
 
   @Bean
   public Vertx getVertx(ClusterManager clusterManager) throws InterruptedException, ExecutionException{
