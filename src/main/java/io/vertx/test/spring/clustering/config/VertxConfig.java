@@ -17,12 +17,13 @@ import io.vertx.spi.cluster.jgroups.JGroupsClusterManager;
 @Configuration
 public class VertxConfig {
 
-  @Primary
+  
   @Bean
   public ClusterManager getJGroupsClusterManager(){
 	  return new JGroupsClusterManager();
   }
   
+  @Primary
   @Bean
   public ClusterManager IgniteClusterManager(){
 	  return new IgniteClusterManager();
